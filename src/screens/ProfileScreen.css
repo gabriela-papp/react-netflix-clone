@@ -1,6 +1,7 @@
 .profileScreen {
-  height: 100vh;
+  height: 100%;
   color: white;
+  padding-bottom: 30px;
 }
 .profileScreen_body {
   display: flex;

@@ -2,6 +2,7 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import {selectUser} from '../features/counter/userSlice'
 import {auth} from '../firebase'
+import PlansScreen from './PlansScreen'
 import Nav from '../Nav'
 import './ProfileScreen.css'
 
@@ -14,12 +15,14 @@ function ProfileScreen() {
                 <h1>Edit Profile</h1>
                 <div className="profileScreen_info">
                     <img src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" alt=""/>
-                </div>
-                <div className="profileScreen_details">
-                    <h2>{user.email}</h2>
-                    <div className="profileScreen_plans">
-                        <h3>Plans</h3>
-                        <button className='profileScreen_singout' onClick={()=> auth.signOut()}>Sign Out</button>
+                
+                    <div className="profileScreen_detail">
+                        <h2>{user.email}</h2>
+                        <div className="profileScreen_plans">
+                            <h3>Plans</h3>
+                            <PlansScreen/>
+                            <button className='profileScreen_singout' onClick={()=> auth.signOut()}>Sign Out</button>
+                        </div>
                     </div>
                 </div>
             </div>
