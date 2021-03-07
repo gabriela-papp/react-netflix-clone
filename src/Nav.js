@@ -7,16 +7,20 @@ function Nav() {
     const [show, handleShow] = useState(false)
     const history=useHistory()
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
+    const transitionNavBar=() => {
             if (window.scrollY > 100) {
                 handleShow(true)
             } else { handleShow(false) }
-        })
-        return () => {
-            window.removeEventListener('scroll')
         }
-    }, [])
+
+        useEffect(()=>{
+            window.addEventListener('scroll',transitionNavBar)
+            return()=>{
+                window.removeEventListener('scroll',transitionNavBar)
+            }
+        })
+
+      
     return (
         <div className={`nav ${show && "nav_black"}`}>
             <img 
